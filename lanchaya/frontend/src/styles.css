@@ -1,0 +1,352 @@
+:root {
+  --rio: #0b6e8a;
+  --rio-oscuro: #084c61;
+  --selva: #1f7a4d;
+  --fondo: #f2f6f7;
+  --tarjeta: #ffffff;
+  --texto: #14262c;
+  --texto-suave: #52666d;
+  --borde: #d5e0e3;
+  --rojo: #b3261e;
+  --amarillo: #8a6100;
+  --radio: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.45;
+  font-size: 16px;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 12px;
+}
+.encabezado h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--rio-oscuro);
+}
+.ciudad {
+  color: var(--selva);
+}
+.subtitulo {
+  margin: 2px 0 0;
+  color: var(--texto-suave);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-height: 44px; /* tamaño táctil cómodo en celular */
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primario {
+  background: var(--rio);
+  color: #fff;
+}
+.btn-primario:hover:not(:disabled) {
+  background: var(--rio-oscuro);
+}
+.btn-secundario {
+  background: #fff;
+  color: var(--rio-oscuro);
+  border-color: var(--borde);
+}
+.btn-secundario:hover:not(:disabled) {
+  background: #eaf3f5;
+}
+.btn-peligro {
+  background: #fff;
+  color: var(--rojo);
+  border-color: #efc4c1;
+}
+.btn-peligro:hover {
+  background: #fdeceb;
+}
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #6bb7cb;
+  outline-offset: 1px;
+}
+
+/* ---------- Filtros ---------- */
+.filtros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px;
+  align-items: end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+.campo > span {
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+.campo input,
+.campo select {
+  font: inherit;
+  font-size: 1rem; /* evita el zoom automático en iOS */
+  padding: 10px 12px;
+  min-height: 44px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--texto);
+  width: 100%;
+}
+.campo-error input,
+.campo-error select {
+  border-color: var(--rojo);
+}
+.msg-error {
+  color: var(--rojo);
+  font-weight: 600;
+}
+
+/* ---------- Avisos y estados ---------- */
+.aviso {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.aviso-ok {
+  background: #e3f4ea;
+  color: #155b38;
+}
+.aviso-error {
+  background: #fdeceb;
+  color: var(--rojo);
+}
+.estado {
+  margin-top: 16px;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--texto-suave);
+  background: var(--tarjeta);
+  border: 1px dashed var(--borde);
+  border-radius: var(--radio);
+}
+.estado-error {
+  color: var(--rojo);
+  border-color: #efc4c1;
+}
+.contador {
+  margin: 16px 0 8px;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+/* ---------- Tarjetas ---------- */
+.lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.card {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(8, 76, 97, 0.06);
+}
+.card-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.precio {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--selva);
+}
+.card-destino {
+  margin: 2px 0 0;
+  font-size: 1.25rem;
+  color: var(--rio-oscuro);
+}
+.card-empresa {
+  margin: 0;
+  color: var(--texto-suave);
+}
+.card-datos {
+  margin: 6px 0 0;
+  display: grid;
+  gap: 4px;
+}
+.card-datos > div {
+  display: flex;
+  gap: 8px;
+}
+.card-datos dt {
+  min-width: 78px;
+  color: var(--texto-suave);
+}
+.card-datos dd {
+  margin: 0;
+}
+.card-acciones {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.card-acciones .btn {
+  flex: 1;
+}
+
+.etiqueta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.etiqueta-lancha {
+  background: #e6eefc;
+  color: #1d4690;
+}
+.etiqueta-rapido {
+  background: #fdebd5;
+  color: #8a4b05;
+}
+.etiqueta-deslizador {
+  background: #e3f4ea;
+  color: #155b38;
+}
+
+.cupos {
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+.cupos-verde {
+  background: #e3f4ea;
+  color: #155b38;
+}
+.cupos-amarillo {
+  background: #fff1cc;
+  color: var(--amarillo);
+}
+.cupos-rojo {
+  background: #fdeceb;
+  color: var(--rojo);
+}
+
+/* ---------- Formulario (ventana modal) ---------- */
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 30, 38, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+}
+.modal {
+  background: #fff;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 16px 16px 0 0;
+  padding: 18px 16px 20px;
+}
+.modal h2 {
+  margin: 0 0 12px;
+  color: var(--rio-oscuro);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.form-acciones {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.form-acciones .btn {
+  flex: 1;
+}
+
+/* ---------- Pantallas más grandes ---------- */
+@media (min-width: 640px) {
+  .filtros {
+    grid-template-columns: 1fr 1fr;
+  }
+  .campo-busqueda {
+    grid-column: 1 / -1;
+  }
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal-fondo {
+    align-items: center;
+    padding: 16px;
+  }
+  .modal {
+    max-width: 640px;
+    border-radius: 16px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-acciones .btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .filtros {
+    grid-template-columns: 2fr 1.4fr 1.2fr 1.2fr auto;
+  }
+  .campo-busqueda {
+    grid-column: auto;
+  }
+  .lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
